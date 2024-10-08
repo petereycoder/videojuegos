@@ -37,6 +37,13 @@ class GameController extends Controller
         ]);
 
         $game = Game::create($request->all());
+
+        if($request->hasFile('image')){
+            $nombre = $game->id.'.'.$request->file('image')->getClientOriginalExtension();
+            $img = $request->file('image')->storeAS('public/img',$nombre);
+            $game->image = '/img/'.$nombre;
+            $game->save();
+        }
         return redirect()->route('games.index')->with('success', 'Juego creado');
     }
 
