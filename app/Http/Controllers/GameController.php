@@ -29,7 +29,15 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'levels' => 'required|numeric',
+            'release' => 'required|date',
+            'image' => 'required|image'
+        ]);
+
+        $game = Game::create($request->all());
+        return redirect()->route('games.index')->with('success', 'Juego creado');
     }
 
     /**
@@ -45,7 +53,7 @@ class GameController extends Controller
      */
     public function edit(Game $game)
     {
-        //
+        return view('Games.edit', compact('game'));
     }
 
     /**
