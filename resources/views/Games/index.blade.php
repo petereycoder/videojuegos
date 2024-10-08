@@ -53,6 +53,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-end">
+                        {{ $games->links() }}
+                </div>
             </div>
         </div>
     </div>
