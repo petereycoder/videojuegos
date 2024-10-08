@@ -44,7 +44,7 @@
                                     <form id="frm_{{$game->id}}" method="POST" action="{{route('games.destroy', $game->id)}}">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="button" class="btn btn-danger">
+                                        <button type="submit" class="btn btn-danger">
                                             <i class="fa-solid fa-trash"></i>
                                         </button>
                                     </form>
