@@ -27,7 +27,7 @@
                             <span class="input-group-text"><i class="fa-solid fa-image"></i></span>
                             <input type="file" name="image" class="form-control"  required>
                         </div>
-                        <button class="btn btn-sucess" type="submit">Guardar</button>
+                        <button class="btn btn-success" type="submit">Guardar</button>
                     </form>
                 </div>
             </div>
