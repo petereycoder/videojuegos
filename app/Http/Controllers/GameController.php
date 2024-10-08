@@ -61,7 +61,14 @@ class GameController extends Controller
      */
     public function update(Request $request, Game $game)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'levels' => 'required|numeric',
+            'release' => 'required|date'
+        ]);
+
+        $game->update($request->input());
+        return redirect()->route('games.index')->with('success', 'Juego actualizado');
     }
 
     /**

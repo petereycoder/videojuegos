@@ -33,16 +33,16 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text"><i class="fa-solid fa-trophy"></i></span>
                             <input type="text" name="levels" class="form-control" placeholder="Niveles"
-                            @isset($game) value="{{$game->levels}}" @endisset required>>
+                            @isset($game) value="{{$game->levels}}" @endisset required>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text"><i class="fa-solid fa-calendar-alt"></i></span>
                             <input type="date" name="release" class="form-control" placeholder="Lanzamiento"
-                            @isset($game) value="{{$game->release}}" @endisset accept="image/*" required>>
+                            @isset($game) value="{{$game->release}}" @endisset  required>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text"><i class="fa-solid fa-image"></i></span>
-                            <input type="file" name="image" class="form-control"  required>
+                            <input type="file" name="image" class="form-control" accept="image/*" @if (!isset($game)) required @endif>
                         </div>
                         <button class="btn btn-success" type="submit">Guardar</button>
                     </form>
