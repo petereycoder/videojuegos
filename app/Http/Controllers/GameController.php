@@ -41,7 +41,8 @@ class GameController extends Controller
 
         if($request->hasFile('image')){
             $nombre = $game->id.'.'.$request->file('image')->getClientOriginalExtension();
-            $img = $request->file('image')->storeAS('public/img',$nombre);
+            $img = $request->file('image')->storeAS('img',$nombre);
+            //$img = $request->file('image')->store('public/img');
             $game->image = '/img/'.$nombre;
             $game->save();
         }
