@@ -44,7 +44,7 @@
                                     <form id="frm_{{$game->id}}" method="POST" action="{{route('games.destroy', $game->id)}}">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">
+                                        <button type="button" class="btn btn-danger" onclick="confirmDelete({{ $game->id }})">
                                             <i class="fa-solid fa-trash"></i>
                                         </button>
                                     </form>
@@ -60,4 +60,23 @@
         </div>
     </div>
 @endsection
+<script>
+    function confirmDelete(elementoId) {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¡No podrás revertir esto!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, eliminarlo',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Si se confirma, se envía el formulario
+                document.getElementById('frm_' + elementoId).submit();
+            }
+        });
+    }
+</script>
 
